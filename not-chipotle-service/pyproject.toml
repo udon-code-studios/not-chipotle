@@ -14,7 +14,7 @@ dependencies = [
 packages = [{include = "not_chipotle_service", from = "src"}]
 
 [tool.poetry.scripts]
-not-chipotle-service = "not_chipotle_service.__main__:main"
+not-chipotle-service = "not_chipotle_service.main:main"
 
 
 [build-system]

@@ -1,6 +1,6 @@
 def main():
     """Entry point for the NotChipotle service."""
-    print("Starting my awesome service using __main__.py!")
+    print("Starting my awesome service using main.py!")
     # Your service initialization and logic here
 
 
