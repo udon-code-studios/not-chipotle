@@ -1,0 +1,238 @@
+{
+  "entrees": [
+    {
+      "id": "burrito",
+      "name": "Burrito",
+      "base_price": 8.95,
+      "description": "Flour tortilla filled with your choice of ingredients"
+    },
+    {
+      "id": "bowl",
+      "name": "Burrito Bowl",
+      "base_price": 8.95,
+      "description": "All burrito ingredients without the tortilla in a bowl"
+    },
+    {
+      "id": "tacos",
+      "name": "Tacos",
+      "base_price": 8.95,
+      "description": "Three crispy or soft corn or flour tortillas filled with your choice of ingredients",
+      "special_configurations": [{ "taco_types": ["flour", "corn"] }]
+    },
+    {
+      "id": "salad",
+      "name": "Salad",
+      "base_price": 8.95,
+      "description": "Fresh romaine lettuce with your choice of ingredients"
+    },
+    {
+      "id": "quesadilla",
+      "name": "Quesadilla",
+      "base_price": 9.95,
+      "description": "Flour tortilla with monterey jack cheese and your choice of ingredients, served with 3 sides"
+    }
+  ],
+  "proteins": [
+    {
+      "id": "chicken",
+      "name": "Chicken",
+      "price_add": 0.0
+    },
+    {
+      "id": "steak",
+      "name": "Steak",
+      "price_add": 1.0
+    },
+    {
+      "id": "barbacoa",
+      "name": "Barbacoa",
+      "price_add": 1.0
+    },
+    {
+      "id": "carnitas",
+      "name": "Carnitas",
+      "price_add": 0.5
+    },
+    {
+      "id": "sofritas",
+      "name": "Sofritas",
+      "price_add": 0.0
+    },
+    {
+      "id": "veggie",
+      "name": "Veggie",
+      "price_add": 0.0
+    }
+  ],
+  "toppings": [
+    {
+      "id": "white_rice",
+      "name": "White Rice",
+      "price_add": 0.0
+    },
+    {
+      "id": "brown_rice",
+      "name": "Brown Rice",
+      "price_add": 0.0
+    },
+    {
+      "id": "black_beans",
+      "name": "Black Beans",
+      "price_add": 0.0
+    },
+    {
+      "id": "pinto_beans",
+      "name": "Pinto Beans",
+      "price_add": 0.0
+    },
+    {
+      "id": "fajita_veggies",
+      "name": "Fajita Veggies",
+      "price_add": 0.0
+    },
+    {
+      "id": "mild_salsa",
+      "name": "Fresh Tomato Salsa (Mild)",
+      "synonyms": [
+        "mild",
+        "mild salsa",
+        "tomato",
+        "tomatoes",
+        "tomato salsa",
+        "diced tomatoes",
+        "pico",
+        "pico de gallo"
+      ],
+      "price_add": 0.0
+    },
+    {
+      "id": "medium_salsa",
+      "name": "Tomatillo Green Chili Salsa (Medium)",
+      "synonyms": ["medium", "medium salsa", "green", "green salsa", "green chili", "green chili salsa"],
+      "price_add": 0.0
+    },
+    {
+      "id": "hot_salsa",
+      "name": "Tomatillo Red Chili Salsa (Hot)",
+      "synonyms": ["hot", "hot salsa", "red", "red salsa", "red chili", "red chili salsa", "spicy", "spicy salsa"],
+      "price_add": 0.0
+    },
+    {
+      "id": "corn_salsa",
+      "name": "Corn Salsa",
+      "synonyms": ["corn", "corn salsa"],
+      "price_add": 0.0
+    },
+    {
+      "id": "cheese",
+      "name": "Cheese",
+      "price_add": 0.0
+    },
+    {
+      "id": "sour_cream",
+      "name": "Sour Cream",
+      "price_add": 0.0
+    },
+    {
+      "id": "lettuce",
+      "name": "Romaine Lettuce",
+      "price_add": 0.0
+    },
+    {
+      "id": "guacamole",
+      "name": "Guacamole",
+      "synonyms": ["guac", "avocado", "avocados"],
+      "price_add": 1.5
+    },
+    {
+      "id": "queso",
+      "name": "Queso Blanco",
+      "price_add": 1.5
+    },
+    {
+      "id": "double_protein_chicken",
+      "name": "Double Protein (Chicken)",
+      "price_add": 2.0
+    },
+    {
+      "id": "double_protein_steak",
+      "name": "Double Protein (Steak)",
+      "price_add": 3.0
+    },
+    {
+      "id": "double_protein_barbacoa",
+      "name": "Double Protein (Barbacoa)",
+      "price_add": 3.0
+    },
+    {
+      "id": "double_protein_carnitas",
+      "name": "Double Protein (Carnitas)",
+      "price_add": 2.5
+    },
+    {
+      "id": "double_protein_sofritas",
+      "name": "Double Protein (Sofritas)",
+      "price_add": 2.0
+    }
+  ],
+  "sides": [
+    {
+      "id": "guacamole",
+      "name": "Guacamole",
+      "price_add": 2.45
+    },
+    {
+      "id": "queso",
+      "name": "Queso Blanco",
+      "price_add": 1.45
+    },
+    {
+      "id": "chips",
+      "name": "Chips",
+      "price": 1.95
+    },
+    {
+      "id": "chips_guacamole",
+      "name": "Chips & Guacamole",
+      "price": 4.25
+    },
+    {
+      "id": "chips_queso",
+      "name": "Chips & Queso Blanco",
+      "price": 4.25
+    },
+    {
+      "id": "chips_salsa",
+      "name": "Chips & Salsa",
+      "price": 3.5
+    },
+    {
+      "id": "tortilla",
+      "name": "Tortilla",
+      "synonyms": ["tortilla on the side"],
+      "price": 1.0
+    }
+  ],
+  "drinks": [
+    {
+      "id": "fountain_small",
+      "name": "Fountain Drink (Small)",
+      "price": 2.15
+    },
+    {
+      "id": "fountain_large",
+      "name": "Fountain Drink (Large)",
+      "price": 2.45
+    },
+    {
+      "id": "bottled_water",
+      "name": "Bottled Water",
+      "price": 2.75
+    },
+    {
+      "id": "water_cup",
+      "name": "Water (Cup)",
+      "price": 0.0
+    }
+  ]
+}
