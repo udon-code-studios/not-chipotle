@@ -2,31 +2,36 @@
   "entrees": [
     {
       "id": "burrito",
+      "type": "entree",
       "name": "Burrito",
       "base_price": 8.95,
       "description": "Flour tortilla filled with your choice of ingredients"
     },
     {
       "id": "bowl",
+      "type": "entree",
       "name": "Burrito Bowl",
       "base_price": 8.95,
       "description": "All burrito ingredients without the tortilla in a bowl"
     },
     {
       "id": "tacos",
+      "type": "entree",
       "name": "Tacos",
       "base_price": 8.95,
       "description": "Three crispy or soft corn or flour tortillas filled with your choice of ingredients",
-      "special_configurations": [{ "taco_types": ["flour", "corn"] }]
+      "special_configurations": { "taco_type": ["flour", "corn"] }
     },
     {
       "id": "salad",
+      "type": "entree",
       "name": "Salad",
       "base_price": 8.95,
       "description": "Fresh romaine lettuce with your choice of ingredients"
     },
     {
       "id": "quesadilla",
+      "type": "entree",
       "name": "Quesadilla",
       "base_price": 9.95,
       "description": "Flour tortilla with monterey jack cheese and your choice of ingredients, served with 3 sides"
@@ -35,31 +40,37 @@
   "proteins": [
     {
       "id": "chicken",
+      "type": "protein",
       "name": "Chicken",
       "price_add": 0.0
     },
     {
       "id": "steak",
+      "type": "protein",
       "name": "Steak",
       "price_add": 1.0
     },
     {
       "id": "barbacoa",
+      "type": "protein",
       "name": "Barbacoa",
       "price_add": 1.0
     },
     {
       "id": "carnitas",
+      "type": "protein",
       "name": "Carnitas",
       "price_add": 0.5
     },
     {
       "id": "sofritas",
+      "type": "protein",
       "name": "Sofritas",
       "price_add": 0.0
     },
     {
       "id": "veggie",
+      "type": "protein",
       "name": "Veggie",
       "price_add": 0.0
     }
@@ -67,31 +78,37 @@
   "toppings": [
     {
       "id": "white_rice",
+      "type": "topping",
       "name": "White Rice",
       "price_add": 0.0
     },
     {
       "id": "brown_rice",
+      "type": "topping",
       "name": "Brown Rice",
       "price_add": 0.0
     },
     {
       "id": "black_beans",
+      "type": "topping",
       "name": "Black Beans",
       "price_add": 0.0
     },
     {
       "id": "pinto_beans",
+      "type": "topping",
       "name": "Pinto Beans",
       "price_add": 0.0
     },
     {
       "id": "fajita_veggies",
+      "type": "topping",
       "name": "Fajita Veggies",
       "price_add": 0.0
     },
     {
       "id": "mild_salsa",
+      "type": "topping",
       "name": "Fresh Tomato Salsa (Mild)",
       "synonyms": [
         "mild",
@@ -107,70 +124,83 @@
     },
     {
       "id": "medium_salsa",
+      "type": "topping",
       "name": "Tomatillo Green Chili Salsa (Medium)",
       "synonyms": ["medium", "medium salsa", "green", "green salsa", "green chili", "green chili salsa"],
       "price_add": 0.0
     },
     {
       "id": "hot_salsa",
+      "type": "topping",
       "name": "Tomatillo Red Chili Salsa (Hot)",
       "synonyms": ["hot", "hot salsa", "red", "red salsa", "red chili", "red chili salsa", "spicy", "spicy salsa"],
       "price_add": 0.0
     },
     {
       "id": "corn_salsa",
+      "type": "topping",
       "name": "Corn Salsa",
       "synonyms": ["corn", "corn salsa"],
       "price_add": 0.0
     },
     {
       "id": "cheese",
+      "type": "topping",
       "name": "Cheese",
       "price_add": 0.0
     },
     {
       "id": "sour_cream",
+      "type": "topping",
       "name": "Sour Cream",
       "price_add": 0.0
     },
     {
       "id": "lettuce",
+      "type": "topping",
       "name": "Romaine Lettuce",
       "price_add": 0.0
     },
     {
       "id": "guacamole",
+      "type": "topping",
       "name": "Guacamole",
       "synonyms": ["guac", "avocado", "avocados"],
       "price_add": 1.5
     },
     {
       "id": "queso",
+      "type": "topping",
       "name": "Queso Blanco",
       "price_add": 1.5
     },
     {
       "id": "double_protein_chicken",
+      "type": "topping",
       "name": "Double Protein (Chicken)",
       "price_add": 2.0
     },
     {
       "id": "double_protein_steak",
+      "type": "topping",
       "name": "Double Protein (Steak)",
       "price_add": 3.0
     },
     {
       "id": "double_protein_barbacoa",
+      "type": "topping",
       "name": "Double Protein (Barbacoa)",
       "price_add": 3.0
     },
     {
       "id": "double_protein_carnitas",
+      "type": "topping",
       "name": "Double Protein (Carnitas)",
       "price_add": 2.5
     },
     {
       "id": "double_protein_sofritas",
+      "type": "topping",
       "name": "Double Protein (Sofritas)",
       "price_add": 2.0
     }
@@ -178,36 +208,43 @@
   "sides": [
     {
       "id": "guacamole",
+      "type": "side",
       "name": "Guacamole",
       "price_add": 2.45
     },
     {
       "id": "queso",
+      "type": "side",
       "name": "Queso Blanco",
       "price_add": 1.45
     },
     {
       "id": "chips",
+      "type": "side",
       "name": "Chips",
       "price": 1.95
     },
     {
       "id": "chips_guacamole",
+      "type": "side",
       "name": "Chips & Guacamole",
       "price": 4.25
     },
     {
       "id": "chips_queso",
+      "type": "side",
       "name": "Chips & Queso Blanco",
       "price": 4.25
     },
     {
       "id": "chips_salsa",
+      "type": "side",
       "name": "Chips & Salsa",
       "price": 3.5
     },
     {
       "id": "tortilla",
+      "type": "side",
       "name": "Tortilla",
       "synonyms": ["tortilla on the side"],
       "price": 1.0
@@ -216,21 +253,25 @@
   "drinks": [
     {
       "id": "fountain_small",
+      "type": "drink",
       "name": "Fountain Drink (Small)",
       "price": 2.15
     },
     {
       "id": "fountain_large",
+      "type": "drink",
       "name": "Fountain Drink (Large)",
       "price": 2.45
     },
     {
       "id": "bottled_water",
+      "type": "drink",
       "name": "Bottled Water",
       "price": 2.75
     },
     {
       "id": "water_cup",
+      "type": "drink",
       "name": "Water (Cup)",
       "price": 0.0
     }
