@@ -6,11 +6,12 @@ authors = [
     {name = "Leo",email = "leo.battalora@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<4.0"
 dependencies = [
     "pydantic (>=2.10.6,<3.0.0)",
     "pydantic-ai-slim[anthropic,bedrock,cli,groq,mcp,mistral,openai,vertexai] (>=0.0.46,<0.0.47)",
-    "python-dotenv (>=1.1.0,<2.0.0)"
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "langgraph (>=0.3.21,<0.4.0)"
 ]
 
 [tool.poetry]
@@ -18,7 +19,6 @@ packages = [{include = "not_chipotle_service", from = "src"}]
 
 [tool.poetry.scripts]
 not-chipotle-service = "not_chipotle_service.main:run"
-
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
