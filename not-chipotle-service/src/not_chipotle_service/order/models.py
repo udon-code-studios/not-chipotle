@@ -3,7 +3,6 @@ from typing import List, Optional, Dict
 
 class CartItem(BaseModel):
     menu_item_id: str = Field(description="ID of the menu item (e.g., 'burrito', 'chicken', 'white_rice')")
-    quantity: int = Field(default=1, ge=1, description="Quantity of the item")
 
 class CartEntree(CartItem):
     menu_item_id: str = Field(description="ID of the entree (e.g., 'burrito', 'tacos')")
@@ -44,16 +43,14 @@ class MenuItem(BaseModel):
     id: str = Field(description="Unique identifier for the menu item")
     type: str = Field(description="Type of the menu item (e.g., 'entree', 'protein', 'topping', 'side', 'drink')")
     name: str = Field(description="Name of the menu item")
-    base_price: Optional[float] = Field(default=None, description="Base price of the menu item")
     price: Optional[float] = Field(default=None, description="Price of the menu item (for sides and drinks)")
-    price_add: Optional[float] = Field(default=None, description="Additional price for proteins and toppings")
     description: Optional[str] = Field(default=None, description="Description of the menu item")
     synonyms: Optional[List[str]] = Field(default_factory=list, description="List of synonyms for the menu item")
-    special_configurations: Optional[Dict] = Field(default=None, description="Special configurations for the menu item (e.g., taco types)")
+    special_configurations: Optional[Dict[str, List[str]]] = Field(default=None, description="Special configurations for the menu item (e.g., taco types)")
 
 class Menu(BaseModel):
-    entrees: List[MenuItem]
-    proteins: List[MenuItem]
-    toppings: List[MenuItem]
-    sides: List[MenuItem]
-    drinks: List[MenuItem]
+    entrees: List[MenuItem] = Field(default_factory=list, description="List of entree menu items (e.g., burrito, tacos)")
+    proteins: List[MenuItem] = Field(default_factory=list, description="List of proteins which can be added to entrees (e.g., chicken, barbacoa)")
+    toppings: List[MenuItem] = Field(default_factory=list, description="List of toppings which can be added to entrees (e.g., guacamole, cheese)")
+    sides: List[MenuItem] = Field(default_factory=list, description="List of side menu items (e.g., chips, rice)")
+    drinks: List[MenuItem] = Field(default_factory=list, description="List of drink menu items (e.g., fountain_small, bottled_water)")
