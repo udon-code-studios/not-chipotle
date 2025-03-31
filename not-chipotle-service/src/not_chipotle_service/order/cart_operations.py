@@ -5,6 +5,7 @@ from not_chipotle_service.order.models import (
     CartEntree,
     CartSide,
     CartDrink,
+    MenuItem,
 )
 
 
@@ -32,7 +33,7 @@ def add_item_to_cart(
     menu: Menu,
     item_type: str,
     menu_item_id: str,
-) -> Cart:
+) -> int:
     """Adds an item to the shopping cart based on the item type and menu item ID."""
     if item_type == "entree":
         menu_item = next((item for item in menu.entrees if item.id == menu_item_id), None)
@@ -57,19 +58,19 @@ def add_item_to_cart(
             f"Invalid item_type: '{item_type}'. Must be 'entree', 'side', or 'drink'."
         )
 
-    return cart
+    return cart.items.index(cart.items[-1])  # Return the index of the newly added item
 
 
-def remove_item_from_cart(cart: Cart, item_index: int) -> Cart:
+def remove_item_from_cart(cart: Cart, item_index: int) -> None:
     """Removes an item from the shopping cart by index."""
     if item_index < 0 or item_index >= len(cart.items):
         raise ValueError(f"Invalid index: {item_index}. Cannot remove item from cart.")
     
     removed_item = cart.items.pop(item_index)
-    return cart
+    return
 
 
-def add_topping_to_entree(cart: Cart, menu: Menu, item_index: int, topping_id: str) -> Cart:
+def add_topping_to_entree(cart: Cart, menu: Menu, item_index: int, topping_id: str) -> int:
     """Adds a topping to a specific entree in the cart."""
     # Make sure a valid item_index is provided
     if item_index < 0 or item_index >= len(cart.items):
@@ -89,10 +90,10 @@ def add_topping_to_entree(cart: Cart, menu: Menu, item_index: int, topping_id: s
     if topping_id not in entree.toppings:
         entree.toppings.append(topping_id)
 
-    return cart
+    return cart.items.index(entree)
 
 
-def remove_topping_from_entree(cart: Cart, item_index: int, topping_id: str) -> Cart:
+def remove_topping_from_entree(cart: Cart, item_index: int, topping_id: str) -> None:
     """Removes a topping from a specific entree in the cart."""
     entree = _get_entree_from_cart(cart, item_index)
     if not entree:
@@ -100,7 +101,7 @@ def remove_topping_from_entree(cart: Cart, item_index: int, topping_id: str) -> 
 
     if topping_id in entree.toppings:
         entree.toppings.remove(topping_id)
-    return cart
+    return
 
 
 def set_entree_protein(
@@ -108,7 +109,7 @@ def set_entree_protein(
     menu: Menu,
     item_index: int,
     new_protein_id: str,
-) -> Cart:
+) -> int:
     """Sets the protein of a specific entree in the cart."""
     entree = _get_entree_from_cart(cart, item_index)
     if not entree:
@@ -119,7 +120,7 @@ def set_entree_protein(
         raise ValueError(f"Protein with ID '{new_protein_id}' not found in the menu.")
     entree.protein_id = new_protein_id
 
-    return cart
+    return cart.items.index(entree)  # Return the index of the entree after setting the protein
 
 
 def set_entree_special_configurations(
@@ -127,7 +128,7 @@ def set_entree_special_configurations(
     menu: Menu,
     item_index: int,
     special_configurations: Dict,
-) -> Cart:
+) -> int:
     """Configures the special configurations for a specific entree in the cart."""
     entree = _get_entree_from_cart(cart, item_index)
     if not entree:
@@ -153,28 +154,32 @@ def set_entree_special_configurations(
             )
     
     entree.special_configurations = special_configurations
-    return cart
+    return cart.items.index(entree)  # Return the index of the entree after setting special configurations
 
 
-def print_cart(cart: Cart):
-    """Prints the contents of the cart in a more readable format with emojis."""
+def print_cart(cart: Cart, menu_items_dict: Dict[str, MenuItem]):
+    """Prints the contents of the cart in a more readable format with emojis and indexes."""
     if not cart.items:
         print("🛒 Your cart is empty.")
         return
 
     print(f"🛒 Cart ID: {cart.cart_id}")
-    for item in cart.items:
+    for idx, item in enumerate(cart.items):
+        item_type = item.item_type
+        menu_item = menu_items_dict.get(f"{item_type}|{item.menu_item_id}", None)
+        item_name = menu_item.name if menu_item else item.menu_item_id
+
         if isinstance(item, CartEntree):
-            print(f"  🌯 Entree: {item.menu_item_id} (x{item.quantity})")
+            print(f"  [{idx}] 🌯 Entree: {item_name}")
             if item.protein_id:
-                print(f"    🐥 Protein: {item.protein_id}")
+                print(f"\t🐥 Protein: {item.protein_id}")
             if item.toppings:
-                print(f"    🫘 Toppings: {', '.join(item.toppings)}")
+                print(f"\t🫘 Toppings: {', '.join(item.toppings)}")
             if item.special_configurations:
-                print(f"    ⚙️ Configurations: {item.special_configurations}")
+                print(f"\t⚙️ Configurations: {item.special_configurations}")
         elif isinstance(item, CartSide):
-            print(f"  🥑 Side: {item.menu_item_id} (x{item.quantity})")
+            print(f"  [{idx}] 🥑 Side: {item_name}")
         elif isinstance(item, CartDrink):
-            print(f"  💧 Drink: {item.menu_item_id} (x{item.quantity})")
+            print(f"  [{idx}] 💧 Drink: {item_name}")
         else:
-            print(f"  ❓ Unknown Item: {item.menu_item_id} (x{item.quantity})")
+            print(f"  [{idx}] ❓ Unknown Item: {item_name}")
