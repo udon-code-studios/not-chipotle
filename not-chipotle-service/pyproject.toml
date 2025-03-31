@@ -11,7 +11,8 @@ dependencies = [
     "pydantic (>=2.10.6,<3.0.0)",
     "pydantic-ai-slim[anthropic,bedrock,cli,groq,mcp,mistral,openai,vertexai] (>=0.0.46,<0.0.47)",
     "python-dotenv (>=1.1.0,<2.0.0)",
-    "langgraph (>=0.3.21,<0.4.0)"
+    "langgraph (>=0.3.21,<0.4.0)",
+    "logfire (>=3.11.0,<4.0.0)"
 ]
 
 [tool.poetry]
